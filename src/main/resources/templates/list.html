@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Jobs</title>
+</head>
+<body>
+
+<h1>Formulary of Job</h1>
+<a href="/add">add a new job</a><br>
+
+<div th:each="job : ${jobs}">
+    <h4 th:inline="text">[[${job.title}]] na [[${job.company}]]</h4>
+    <p th:text="${job.description}"></p>
+
+</div>
+</body>
+</html>
