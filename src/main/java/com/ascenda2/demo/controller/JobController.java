@@ -3,9 +3,9 @@ package com.ascenda2.demo.controller;
 import com.ascenda2.demo.entity.Job;
 import com.ascenda2.demo.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,7 @@ public class JobController {
     @Autowired
     JobRepository repository;
 
-    @RequestMapping("/")
+    @RequestMapping("/list")
     public String listJobs(Model model) {
         model.addAttribute("jobs", repository.findAll());
         return "list";
@@ -36,7 +36,7 @@ public class JobController {
     @PostMapping("/process")
     public String processForm(@Valid Job job, BindingResult result) {
         if (result.hasErrors()) {
-            return "jogForm";
+            return "jobForm";
         }
         repository.save(job);
         return "redirect:/";

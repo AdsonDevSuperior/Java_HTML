@@ -1,5 +1,6 @@
 package com.ascenda2.demo.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,4 +11,18 @@ public class HomeController {
     public String login() {
         return "login";
     }
-}
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
+    }
+    @RequestMapping("/admin")
+    public String admin(){
+        return "admin";
+    }
+    @RequestMapping("/secure")
+    public String secure() {
+        return "secure";
+    }
+    }
+
+
